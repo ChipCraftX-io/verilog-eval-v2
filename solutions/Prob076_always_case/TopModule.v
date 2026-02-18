@@ -1,0 +1,26 @@
+module TopModule (
+    input [2:0] sel,
+    input [3:0] data0,
+    input [3:0] data1,
+    input [3:0] data2,
+    input [3:0] data3,
+    input [3:0] data4,
+    input [3:0] data5,
+    output reg [3:0] out
+);
+
+    // 6-to-1 multiplexer with 3-wire select
+    // Output 0 for sel values 6 and 7
+    always @(*) begin : blk_1
+        case (sel)
+            3'd0: out = data0;
+            3'd1: out = data1;
+            3'd2: out = data2;
+            3'd3: out = data3;
+            3'd4: out = data4;
+            3'd5: out = data5;
+            default: out = 4'b0;  // sel = 6 or 7
+        endcase
+    end
+
+endmodule

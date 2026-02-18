@@ -1,0 +1,17 @@
+module TopModule (
+  input a,
+  input b,
+  input c,
+  input d,
+  output out_sop,
+  output out_pos
+);
+
+  // Sum-of-products form
+  assign out_sop = (~a & ~b & c) | (c & d);
+
+  // Product-of-sums form
+  assign out_pos = (c) & (~b | d) & (~a | d);
+
+endmodule
+
